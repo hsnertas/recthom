@@ -29,12 +29,8 @@ export default class SearchContainer extends Component {
     render() {
      
         return (
-            <div>
-                
-
-
+            <div>       
                 <Table results={this.state.results}/>
-                
             </div>
         )
     }
