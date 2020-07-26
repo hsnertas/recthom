@@ -14,6 +14,19 @@ export default class SearchContainer extends Component {
     state={
         results: []
     }
+   
+
+        tableHeads = [
+        { name: "Image"},
+        { name: "Name"},
+        { name: "Phone"},
+        { name: "Email"},
+        { name: "DOB"}
+        ]
+
+
+
+
 
    componentDidMount (){
          API.search()
@@ -31,7 +44,9 @@ export default class SearchContainer extends Component {
         return (
             <div>
                 <Navbar></Navbar>
-                <Table results={this.state.results}/>
+                <Table results={this.state.results}
+                tableHeads={this.tableHeads}
+                />
             </div>
         )
     }
