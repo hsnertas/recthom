@@ -1,3 +1,8 @@
 table{
     width: 100%;
+    margin: 20px;
+}
+
+thead{
+    border-bottom: 2px solid orange;
 }
