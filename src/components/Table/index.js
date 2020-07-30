@@ -1,35 +1,38 @@
+  
 import React from 'react'
 import "./style.css"
 import TableData from '../TableData'
- function Table(props) {
-    return (
-        <div>
-        
-        
-         <table>
-             <thead>
-                 <tr>
-                  {props.tableHeads.map((tableHead)=>{
-                     console.log("test");
-                  return<th key={tableHead.name}
-                  onClick={()=>{
-                    props.tableHeadSort()
-                }}
-                  
-                  >{tableHead.name} </th>
-                }
+ function Table({ headings, users, handleSort }) {
+  return (
+    <div className="datatable mt-5">
+      <table
+        id="table"
+        className="table table-striped table-hover table-condensed"
+      >
+        <thead>
+          <tr>
+            {headings.map(({ name, width }) => {
+              return (
+                <th
+                  className="col"
+                  key={name}
+                  style={{ width }}
+                  onClick={() => {
+                    handleSort(name.toLowerCase());
+                  }}
+                >
+                  {name}
+                  <span className="pointer"></span>
+                </th>
+              );
+            })}
+          </tr>
+        </thead>
 
-                )}
-
-
-                 </tr>
-             </thead>
-                <TableData results={props.results}
-                 
-                />
-         </table>
-        </div>
-    )
-}
+        <TableData users={users} />
+      </table>
+    </div>
+    );
+  }
 
 export default Table;

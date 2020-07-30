@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import "./style.css";
-export default class Search extends Component {
-    render() {
+function Search({handleSearchChange}){
+   
         return (
             <div className="search">
             <form className="form-inline">
@@ -10,9 +10,12 @@ export default class Search extends Component {
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                onChange={e => handleSearchChange(e)}
               />
             </form>
           </div>
         )
     }
-}
+
+
+export default  Search
